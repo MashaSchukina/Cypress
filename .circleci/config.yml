@@ -28,7 +28,7 @@ jobs:
 
       - run:
           name: Generate report
-          command: npm run allure:report
+          command: npx allure generate allure-results --clean -o allure-report
 
       - store_artifacts:
           path: allure-report
