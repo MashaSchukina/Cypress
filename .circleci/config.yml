@@ -12,38 +12,29 @@ jobs:
           name: Install dependencies
           command: |
             apt-get update
-            apt-get install -y unzip
+            apt-get install -y unzip default-jdk
 
       - run:
           name: Install npm packages
           command: npm ci
 
       - run:
-          name: Install OpenJDK (Required for Allure)
-          command: |
-            apt-get update
-            apt-get install -y default-jdk
-
-      - run:
-          name: Install Allure
-          command: |
-            npm install -g allure-commandline --unsafe-perm
-            echo 'export PATH=$PATH:$(npm bin -g)' >> $BASH_ENV
-            source $BASH_ENV
-
-      - run:
           name: Run tests
           command: npm run test
 
       - run:
-          name: Generate report
+          name: Generate Allure report
           command: npm run allure:report
 
       - store_artifacts:
           path: allure-report
           destination: CypressReport
 
-workflows:
-  build-and-test:
-    jobs:
-      - node-job
+      - store_artifacts:
+          path: allure-report/index.html
+          destination: AllureHTML
+
+      - run:
+          name: Publish Allure report link
+          command: |
+            echo "Allure report generated. Open the artifact 'AllureHTML/index.html' to view it in CircleCI UI."
