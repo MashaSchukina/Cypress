@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node-job:
     docker:
-      - image: cimg/android:2024.01-node
+      - image: cypress/base:24.17.0
 
     steps:
       - checkout
@@ -17,6 +17,12 @@ jobs:
       - run:
           name: Install npm packages
           command: npm ci
+
+      - run:
+          name: Install Java (required for Allure)
+          command: |
+            apt-get update
+            apt-get install -y openjdk-17-jre-headless
 
       - run:
           name: Install Allure
