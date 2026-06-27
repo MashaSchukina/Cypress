@@ -30,9 +30,8 @@ jobs:
           path: allure-report
           destination: CypressReport
 
-      - store_artifacts:
-          path: allure-report/index.html
-          destination: AllureHTML
+      - store_test_results:
+          path: allure-results
 
 workflows:
   build-and-test:
