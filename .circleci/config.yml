@@ -34,7 +34,7 @@ jobs:
           path: allure-report/index.html
           destination: AllureHTML
 
-      - run:
-          name: Publish Allure report link
-          command: |
-            echo "Allure report generated. Open the artifact 'AllureHTML/index.html' to view it in CircleCI UI."
+workflows:
+  build-and-test:
+    jobs:
+      - node-job
