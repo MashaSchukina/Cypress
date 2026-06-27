@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node-job:
     docker:
-      - image: cypress/base:24.17.0
+      - image: cimg/android:2024.01-node
 
     steps:
       - checkout
