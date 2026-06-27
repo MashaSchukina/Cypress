@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node-job:
     docker:
-      - image: node-24.16.0-chrome-149.0.7827.102-1-ff-151.0.4-edge-149.0.4022.52-1
+      - image: cypress/base:24.17.0
 
     steps:
       - checkout
