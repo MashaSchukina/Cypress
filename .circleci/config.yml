@@ -25,8 +25,11 @@ jobs:
             apt-get install -y default-jdk
 
       - run:
-         name: Install Allure
-         command: npm install -g allure-commandline --unsafe-perm
+          name: Install Allure
+          command: |
+            npm install -g allure-commandline --unsafe-perm
+            echo 'export PATH=$PATH:$(npm bin -g)' >> $BASH_ENV
+            source $BASH_ENV
 
       - run:
           name: Run tests
