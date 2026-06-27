@@ -19,18 +19,18 @@ jobs:
           command: npm ci
 
       - run:
-          name: Install Java (required for Allure)
+          name: Install OpenJDK (Required for Allure)
           command: |
-            apt-get update
-            apt-get install -y openjdk-21-jdk-headless
+            sudo apt-get update
+            sudo apt-get install -y default-jdk
 
-      - run:
-          name: Install Allure
-          command: npm install -g allure-commandline --unsafe-perm
+      # - run:
+      #     name: Install Allure
+      #     command: npm install -g allure-commandline --unsafe-perm
 
       - run:
           name: Run tests
-          command: npx cypress run
+          command: npm run test
 
       - run:
           name: Generate report

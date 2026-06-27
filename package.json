@@ -7,13 +7,15 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress run --env allure=true",
     "allure:report": "npx allure generate allure-results --clean -o allure-report"
   },
   "devDependencies": {
-    "allure-commandline": "^2.32.0",
     "@faker-js/faker": "^10.4.0",
     "ajv": "^8.20.0",
+    "allure": "^3.13.2",
+    "allure-commandline": "^2.32.0",
+    "allure-cypress": "^3.10.2",
     "cypress": "^15.17.0"
   },
   "dependencies": {
