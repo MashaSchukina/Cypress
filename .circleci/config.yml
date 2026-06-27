@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   node-job:
     docker:
-      - image: cimg/cypress:13.6.0
+      - image: cypress/base:24.17.0
 
     steps:
       - checkout
@@ -24,9 +24,9 @@ jobs:
             apt-get update
             apt-get install -y default-jdk
 
-      # - run:
-      #     name: Install Allure
-      #     command: npm install -g allure-commandline --unsafe-perm
+      - run:
+         name: Install Allure
+         command: npm install -g allure-commandline --unsafe-perm
 
       - run:
           name: Run tests
