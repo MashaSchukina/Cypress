@@ -21,9 +21,7 @@ jobs:
       - run:
           name: Install Allure
           command: |
-            curl -sSL https://github.com/allure-framework/allure2/releases/download/2.19.0/allure-2.19.0.zip -o allure.zip
-            unzip allure.zip -d /opt/allure
-            ln -s /opt/allure/allure-2.19.0/bin/allure /usr/bin/allure
+            sudo npm install -g allure-commandline
 
       - run:
           name: Run tests
